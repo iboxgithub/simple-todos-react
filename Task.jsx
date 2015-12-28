@@ -3,7 +3,7 @@ INFOS
 l'object this.props.task vient de App
  */
 
-// Task component - represents a single todo item
+// Task component - represents a single item
 Task = React.createClass({
     propTypes: {
         // This component gets the task to display through a React prop.
