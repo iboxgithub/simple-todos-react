@@ -2,7 +2,7 @@
 body {
     font-family: sans-serif;
     background-color: #315481;
-    background-image: linear-gradient(to bottom, #315481, #918e82 100%);
+    background-image: linear-gradient(to bottom, #6bab35, #3aa7cd 100%);/*degrade hors corps*/
     background-attachment: fixed;
 
     position: absolute;
@@ -18,7 +18,7 @@ body {
 }
 
 .container {
-    max-width: 600px;
+    max-width: 800px;/*largeur du corps*/
     margin: 0 auto;
     min-height: 100%;
     background: white;
@@ -26,9 +26,10 @@ body {
 
 header {
     background: #d2edf4;
-    background-image: linear-gradient(to bottom, #d0edf5, #e1e5f0 100%);
+    background-image: linear-gradient(to bottom, #6bab35, #d2edf4 100%);/*degrade header*/
     padding: 20px 15px 15px 15px;
     position: relative;
+    display: flex;/*perso*/
 }
 
 #login-buttons {
@@ -106,6 +107,38 @@ header .hide-completed {
     float: right;
 }
 
+/* ---------------- perso ----------------*/
+/*padding: 0px 0px 0px 10px;*/ /*top, right, bottom, left*/
+.header-left {
+    display:flex;
+    width: 50%;
+}
+
+.header-center {
+    margin: 0 auto;
+}
+
+.header-right {
+    display:flex;
+    width: 50%;
+}
+
+.nav-items{
+    flex: 1 1 auto;
+    -webkit-flex: 1;
+    display: flex;
+}
+
+.header-left .nav-items{/*specific to the left component in order to have the sub menu close to the logo*/
+    justify-content: flex-end;
+}
+
+.header-right .right-item{/*specific to the left component in order to have the sub menu close to the logo*/
+    justify-content: flex-end;
+}
+
+/* ---------------- ----- ----------------*/
+
 .toggle-private {
     margin-left: 5px;
 }
@@ -122,5 +155,17 @@ header .hide-completed {
 
     .new-task input {
         padding-bottom: 5px;
+    }
+}
+
+@media (max-width: 768px){
+    .nav-items{
+        display:none
+    }
+
+    .header-right .right-item{
+        -webkit-flex: 1;
+        display: flex;
+        justify-content: flex-end;
     }
 }

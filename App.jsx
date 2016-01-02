@@ -59,7 +59,33 @@ App = React.createClass({
         return (
             <div className="container">
                 <header>
-                    <h1>Todo List Evo ({this.data.incompleteCount})</h1>
+
+                    <div className="header-left">
+                        <a className="left-item">left-item1</a>
+
+                        <div className="nav-items">
+                            <a className="right-item">right-item1</a>
+                        </div>
+
+                    </div>
+
+                    <div className="header-center">LOGO</div>
+
+                    <div className="header-right">
+
+                        <div className="nav-items">
+                            <a className="left-item">left-item2</a>
+                        </div>
+
+                        <div className="right-item">
+                            <a className="login">right-item2</a>
+                        </div>
+                    </div>
+
+
+                    {/*
+
+                     <h1>Evo ({this.data.incompleteCount})</h1>
 
                     <label className="hide-completed">
                         <input
@@ -70,18 +96,22 @@ App = React.createClass({
                         Hide Completed Tasks
                     </label>
 
-                    <AccountsUIWrapper />
+                     <AccountsUIWrapper />
 
-                    { this.data.currentUser ?
-                        <form className="new-task" onSubmit={this.handleSubmit}>
-                            <input
-                                type="text"
-                                ref="textInput"
-                                placeholder="Type to add new tasks"/>
-                        </form> : ''
-                    }
+                     */}
+
+
 
                 </header>
+
+                { this.data.currentUser ?
+                    <form className="new-task" onSubmit={this.handleSubmit}>
+                        <input
+                            type="text"
+                            ref="textInput"
+                            placeholder="Type to add new tasks"/>
+                    </form> : ''
+                }
 
                 <ul>
                     {this.renderTasks()}
