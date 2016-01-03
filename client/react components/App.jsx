@@ -37,6 +37,14 @@ App = React.createClass({
         });
     },
 
+    /*renderDropDown() {
+        return <DropDownMenu  />;
+    },
+
+    renderReactToggle() {
+        return <ReactToggle  />;
+    },*/
+
     handleSubmit(event) {
         event.preventDefault();
 
@@ -56,6 +64,7 @@ App = React.createClass({
     },
 
     render() {
+
         return (
             <div className="container">
                 <header>
@@ -79,9 +88,9 @@ App = React.createClass({
 
                         <div className="right-item">
                             <a className="login">right-item2</a>
+
                         </div>
                     </div>
-
 
                     {/*
 
@@ -99,8 +108,6 @@ App = React.createClass({
                      <AccountsUIWrapper />
 
                      */}
-
-
 
                 </header>
 

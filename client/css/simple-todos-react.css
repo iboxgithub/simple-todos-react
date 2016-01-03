@@ -107,6 +107,25 @@ header .hide-completed {
     float: right;
 }
 
+.toggle-private {
+    margin-left: 5px;
+}
+
+@media (max-width: 600px) {
+    li {
+        padding: 12px 15px;
+    }
+
+    .search {
+        width: 150px;
+        clear: both;
+    }
+
+    .new-task input {
+        padding-bottom: 5px;
+    }
+}
+
 /* ---------------- perso ----------------*/
 /*padding: 0px 0px 0px 10px;*/ /*top, right, bottom, left*/
 .header-left {
@@ -137,27 +156,6 @@ header .hide-completed {
     justify-content: flex-end;
 }
 
-/* ---------------- ----- ----------------*/
-
-.toggle-private {
-    margin-left: 5px;
-}
-
-@media (max-width: 600px) {
-    li {
-        padding: 12px 15px;
-    }
-
-    .search {
-        width: 150px;
-        clear: both;
-    }
-
-    .new-task input {
-        padding-bottom: 5px;
-    }
-}
-
 @media (max-width: 768px){
     .nav-items{
         display:none
@@ -169,3 +167,4 @@ header .hide-completed {
         justify-content: flex-end;
     }
 }
+/* ---------------- ----- ----------------*/
