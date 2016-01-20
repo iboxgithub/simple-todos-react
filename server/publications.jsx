@@ -9,4 +9,8 @@ if (Meteor.isServer) {
         });
     });
 
+    Meteor.publish("anegdots", function () {
+        return Anegdots.find({}, {limit:3});
+    });
+
 }

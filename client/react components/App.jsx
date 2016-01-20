@@ -6,7 +6,7 @@ App = React.createClass({
 
     getInitialState() {
         return {
-            hideCompleted: false
+
         }
     },
 
@@ -14,26 +14,23 @@ App = React.createClass({
     getMeteorData() {
         let query = {};
 
-        if (this.state.hideCompleted) {
-            // If hide completed is checked, filter tasks
-            query = {checked: {$ne: true}};
-        }
         return {
-            tasks: Tasks.find(query, {sort: {createdAt: -1}}).fetch(),
-            incompleteCount: Tasks.find({checked: {$ne: true}}).count(),
+            anegdots: Anegdots.find(query).fetch(),
             currentUser: Meteor.user()
         }
     },
 
-    renderTasks() {
-        return this.data.tasks.map((task) => {
+    renderAnegdots() {
+        return this.data.anegdots.map((anegdot) => {
+            const lang = 'FR';
             const currentUserId = this.data.currentUser && this.data.currentUser._id;
-            const showPrivateButton = task.owner === currentUserId;
+            const showPrivateButton_Translate = currentUserId ? true : false;
+    console.log(JSON.stringify(anegdot,null,4));
 
-            return <Task
-                key={task._id}
-                task={task}
-                showPrivateButton={showPrivateButton} />;
+            return <Anegdot
+                key={anegdot._id['_str']}
+                anegdot={anegdot}
+                text={anegdot.content[lang].text} />;
         });
     },
 
@@ -48,19 +45,7 @@ App = React.createClass({
     handleSubmit(event) {
         event.preventDefault();
 
-        // Find the text field via the React ref
-        var text = React.findDOMNode(this.refs.textInput).value.trim();
-
-        Meteor.call("addTask", text);
-
-        // Clear form
-        React.findDOMNode(this.refs.textInput).value = "";
-    },
-
-    toggleHideCompleted() {
-        this.setState({
-            hideCompleted: ! this.state.hideCompleted
-        });
+        alert('Hello');
     },
 
     render() {
@@ -87,41 +72,24 @@ App = React.createClass({
                         </div>
 
                         <div className="right-item">
-                            <a className="login">right-item2</a>
+                            <a className="login"><AccountsUIWrapper /></a>
 
                         </div>
                     </div>
 
-                    {/*
-
-                     <h1>Evo ({this.data.incompleteCount})</h1>
-
-                    <label className="hide-completed">
-                        <input
-                            type="checkbox"
-                            readOnly={true}
-                            checked={this.state.hideCompleted}
-                            onClick={this.toggleHideCompleted} />
-                        Hide Completed Tasks
-                    </label>
-
-                     <AccountsUIWrapper />
-
-                     */}
-
                 </header>
 
-                { this.data.currentUser ?
+                {/* this.data.currentUser ?
                     <form className="new-task" onSubmit={this.handleSubmit}>
                         <input
                             type="text"
                             ref="textInput"
                             placeholder="Type to add new tasks"/>
                     </form> : ''
-                }
+                */}
 
                 <ul>
-                    {this.renderTasks()}
+                    {this.renderAnegdots()}
                 </ul>
             </div>
         );
